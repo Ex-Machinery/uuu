@@ -1,0 +1,17 @@
+PNG_PLACEHOLDER: High-resolution PNG of DFD level 1 (图4).
+
+This file is a placeholder containing the mermaid source for the diagram.
+
+Mermaid source:
+```mermaid
+flowchart LR
+  User -->|提交订单请求| OrderProcess[订单处理模块]
+  OrderProcess -->|校验库存| Inventory[库存服务]
+  Inventory -->|库存结果| OrderProcess
+  OrderProcess -->|写入订单| DB[(订单数据库)]
+  OrderProcess -->|调用支付| WeChatPay[微信支付接口]
+  WeChatPay -->|支付结果回调| PaymentHandler[支付回调处理]
+  PaymentHandler -->|更新订单支付状态| DB
+  PaymentHandler -->|通知商家| MerchantSystem[商家系统通知]
+  MerchantSystem -->|接单/发货信息| OrderProcess
+```

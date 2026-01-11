@@ -1,0 +1,16 @@
+PNG_PLACEHOLDER: High-resolution PNG of DFD level 0 (图3).
+
+This file is a placeholder containing the mermaid source for the diagram.
+
+Mermaid source:
+```mermaid
+flowchart LR
+  subgraph System[微信水果小程序系统]
+    S[系统]
+  end
+  User[用户] -->|浏览/下单/支付| S
+  Merchant[商家] -->|接单/发货/管理商品| S
+  Courier[配送员] -->|接单/配送状态更新| S
+  WeChatPay[微信支付] -->|支付回调| S
+  S -->|订单/库存/用户数据| DB[(数据库)]
+```

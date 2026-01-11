@@ -1,0 +1,21 @@
+PNG_PLACEHOLDER: High-resolution PNG of the order business flow (图2).
+
+This file is a placeholder containing the mermaid source for the diagram.
+
+Mermaid source:
+```mermaid
+flowchart TD
+  A[用户浏览商品] --> B[加入购物车]
+  B --> C[提交订单]
+  C --> D{是否有库存}
+  D -- 是 --> E[生成订单（待支付）]
+  D -- 否 --> F[提示库存不足]
+  E --> G[调用微信支付]
+  G --> H{支付成功?}
+  H -- 是 --> I[订单状态：待发货；通知商家]
+  H -- 否 --> J[支付失败；订单待支付或取消]
+  I --> K[商家接单并发货]
+  K --> L[配送人员取货并配送]
+  L --> M[用户确认收货；订单完成]
+  M --> N[售后/评价流程（可选）]
+```
